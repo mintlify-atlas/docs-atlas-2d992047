@@ -1,6 +1,6 @@
 ---
 title: "make_content.py: Regenerate HelloGitHub Issue Files"
-sidebarTitle: "make_content"
+sidebarTitle: "Make Content"
 description: "Use make_content.py to regenerate one or all HelloGitHub monthly issue Markdown files from templates. Useful when updating shared boilerplate content."
 ---
 
@@ -12,13 +12,13 @@ Pass an issue number to regenerate a single issue, or pass `all` to rebuild ever
 
 ```bash
 # Regenerate a specific issue
-python make_content.py <issue_number>
+python script/make_content/make_content.py <issue_number>
 
 # Regenerate all issues
-python make_content.py all
+python script/make_content/make_content.py all
 ```
 
-Single-digit issue numbers are zero-padded automatically — for example, `python make_content.py 3` targets issue `03`.
+Single-digit issue numbers are zero-padded automatically — for example, `python script/make_content/make_content.py 3` targets issue `03`.
 
 <Note>
   Run this script from the repository root directory (not from inside `script/make_content/`). The script resolves all paths relative to the current working directory, so running it from elsewhere will cause it to silently skip files it cannot find.
@@ -58,7 +58,7 @@ The generated file follows a consistent structure:
 - **Project listings** — the per-issue content, organised by programming language category, each entry containing the project name, description, and a link to its GitHub repository
 
 <Warning>
-  Running `python make_content.py all` will overwrite all 123+ existing content files. Make sure your changes to the template are correct before running with `all`.
+  Running `python script/make_content/make_content.py all` will overwrite all existing content files. Make sure your changes to the template are correct before running with `all`.
 </Warning>
 
 ## When to Use It
