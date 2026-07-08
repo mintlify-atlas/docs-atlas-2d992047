@@ -1,0 +1,46 @@
+---
+title: "HelloGitHub Automation Scripts Overview"
+sidebarTitle: "Overview"
+description: "Overview of the Python scripts that power HelloGitHub's content generation and GitHub project discovery workflow."
+---
+
+HelloGitHub uses two Python scripts to streamline its editorial workflow: `make_content.py` for regenerating monthly issue Markdown files, and `github_bot.py` for discovering trending GitHub projects. Together they reduce manual effort — one keeps every published issue in sync when shared boilerplate changes, and the other feeds a daily digest of candidate projects directly to editors' inboxes.
+
+## Available Scripts
+
+<CardGroup cols={2}>
+  <Card title="make_content.py" icon="file-code" href="/scripts/make-content">
+    Regenerates issue content files from a shared template, keeping all monthly issues in sync when common boilerplate changes.
+  </Card>
+  <Card title="github_bot.py" icon="robot" href="/scripts/github-bot">
+    Discovers trending GitHub projects by monitoring star events from followed accounts, then emails a curated daily digest.
+  </Card>
+</CardGroup>
+
+## Prerequisites
+
+Both scripts require **Python 3.x**. They live inside the `script/` directory of the HelloGitHub repository. Clone the repo and enter it before running either script:
+
+```bash
+git clone https://github.com/521xueweihan/HelloGitHub.git
+cd HelloGitHub
+```
+
+## Script Directory Structure
+
+The `script/` directory is organised into one sub-folder per script, each containing the script itself and a `README.md` with usage notes:
+
+```
+script/
+├── make_content/
+│   ├── make_content.py
+│   └── README.md
+└── github_bot/
+    ├── github_bot.py
+    ├── requirements.txt
+    └── README.md
+```
+
+<Note>
+  Both scripts must be run from the repository root directory to correctly resolve content paths.
+</Note>

@@ -1,0 +1,98 @@
+---
+title: "How HelloGitHub Works: Monthly Curation Process"
+sidebarTitle: "How It Works"
+description: "Learn how HelloGitHub discovers, curates, and publishes interesting open-source projects every month on GitHub."
+---
+
+HelloGitHub runs on a simple but carefully maintained lifecycle: community members submit project recommendations via GitHub Issues, the editorial team reviews each submission against a set of quality and accessibility criteria, and the accepted projects are compiled into a new issue that goes live on the **28th of every month**. This regular cadence — consistent, community-powered, and publicly accessible — is what has allowed HelloGitHub to grow from a small experiment into a repository with 164,000+ stars and 123+ published issues.
+
+## The Monthly Schedule
+
+Every HelloGitHub issue is published on a fixed date: the **28th of each month**, without exception. Issues are numbered sequentially starting from Vol.01, and the archive currently extends to **Vol.123**. This predictable rhythm means readers always know when to expect fresh content, and contributors have a clear submission window each month.
+
+<Tip>
+  New issues drop on the 28th of every month. Star the repository to get notified.
+</Tip>
+
+Between publication dates, the editorial team is actively reviewing incoming submissions, following up with contributors, and preparing the next issue. The entire process — submissions, reviews, and published issues — is managed transparently through the public [HelloGitHub GitHub repository](https://github.com/521xueweihan/HelloGitHub).
+
+## Content Structure
+
+Each issue lives as a Markdown file inside the HelloGitHub repository, following a consistent naming convention:
+
+- **Chinese (primary):** `content/HelloGitHub{N}.md` — for example, `content/HelloGitHub123.md`
+- **English (translation):** `content/en/HelloGitHub{N}.md` — for example, `content/en/HelloGitHub123.md`
+
+Inside each file, projects are grouped by **programming language**, so readers can scan directly to the sections most relevant to their stack. A typical issue covers sections including:
+
+```
+C · C# · C++ · CSS · Go · Java · JavaScript · Kotlin
+Objective-C · PHP · Python · Ruby · Rust · Swift · Other
+Books · Machine Learning
+```
+
+Each project entry follows a consistent format:
+
+1. **Project name** — linked to the GitHub repository via the HelloGitHub tracking URL.
+2. **Short description** — a concise summary (32–256 characters) explaining what the project does, its key features, and what makes it interesting.
+3. **Screenshot or demo** — an embedded image or animated GIF where available, so readers can get an immediate visual sense of the project.
+
+Here is an example of what a typical entry looks like in Markdown:
+
+```markdown
+### Python Projects
+
+1. [httpie](https://hellogithub.com/periodical/statistics/click?target=https://github.com/httpie/httpie):
+   A user-friendly command-line HTTP client. HTTPie is designed for testing, debugging, and
+   interacting with APIs and HTTP servers. Its simple and natural syntax makes it much more
+   approachable than curl for beginners.
+```
+
+## How Projects Are Evaluated
+
+The HelloGitHub editorial team evaluates every submission against a consistent set of criteria before accepting it into an issue. A project is more likely to be accepted if it is:
+
+- **Beginner-friendly** — has clear documentation, a meaningful README, and a low barrier to entry for someone new to the technology.
+- **Interesting or creative** — does something novel, solves a real problem in an elegant way, or is simply fun to explore.
+- **Entry-level in complexity** — the codebase is approachable enough that a motivated learner could read and understand it.
+- **Well-documented** — includes usage examples, installation instructions, and ideally screenshots or demos.
+- **Actively maintained** — has recent commits, responsive maintainers, or a healthy community around it.
+
+Projects that are purely commercial, lack documentation, or have already been featured in a previous issue are typically not accepted. Contributors can check the [Project Review Guidelines](https://github.com/521xueweihan/HelloGitHub/issues/271) for the full criteria.
+
+## Reading the Issues
+
+There are three primary ways to read HelloGitHub issues, each suited to a different context and preference:
+
+<CardGroup cols={3}>
+  <Card title="GitHub" icon="github" href="https://github.com/521xueweihan/HelloGitHub">
+    Browse the raw Markdown files directly in the repository. Best for developers who are already on GitHub and want to read inline with code.
+  </Card>
+  <Card title="Official Website" icon="globe" href="https://hellogithub.com">
+    A polished reading experience at hellogithub.com with search, categories, and project bookmarking. Available in both Chinese and English.
+  </Card>
+  <Card title="WeChat" icon="mobile" href="/how-it-works">
+    Follow the HelloGitHub WeChat Official Account to receive each new issue as a push notification on the 28th — popular with Chinese-speaking readers.
+  </Card>
+</CardGroup>
+
+## Multi-language Support
+
+**Chinese** is the primary language of HelloGitHub and remains the canonical source for all issues. English translations are maintained in the `content/en/` directory of the repository, mirroring each Chinese issue. A Japanese README (`README_ja.md`) is also available at the root of the repository for Japanese-speaking readers.
+
+If you are reading in English, you can access every translated issue at `content/en/HelloGitHub{N}.md` on GitHub, or browse the English version of the website at [hellogithub.com/en](https://hellogithub.com/en).
+
+<Info>
+  English translations begin from Vol.86 onward in the `content/en/` directory. Earlier issues are available in Chinese only.
+</Info>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Introduction" icon="book-open" href="/introduction">
+    Go back to the overview of HelloGitHub — its mission, audience, and what makes it unique.
+  </Card>
+  <Card title="How to Contribute" icon="code-pull-request" href="/how-to-contribute">
+    Ready to recommend a project? Learn how to submit via GitHub Issues and join 458+ contributors.
+  </Card>
+</CardGroup>

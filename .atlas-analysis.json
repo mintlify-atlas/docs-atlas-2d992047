@@ -1,0 +1,87 @@
+{
+  "projectType": "general",
+  "projectName": "HelloGitHub",
+  "projectDescription": "A monthly curated newsletter sharing interesting and beginner-friendly open-source projects from GitHub, published on the 28th of every month.",
+  "theme": "almond",
+  "primaryColor": "#242c2c",
+  "lightColor": "#040404",
+  "darkColor": null,
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "About",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "how-it-works",
+              "how-to-contribute"
+            ]
+          },
+          {
+            "group": "Community",
+            "pages": [
+              "community/contributors",
+              "community/submission-guidelines"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Tools & Scripts",
+        "groups": [
+          {
+            "group": "Scripts",
+            "pages": [
+              "scripts/overview",
+              "scripts/make-content",
+              "scripts/github-bot"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Monthly Issues",
+        "groups": [
+          {
+            "group": "Recent Issues",
+            "pages": [
+              "issues/latest",
+              "issues/issue-123",
+              "issues/issue-122",
+              "issues/issue-121",
+              "issues/issue-120"
+            ]
+          },
+          {
+            "group": "Archive",
+            "pages": [
+              "issues/archive",
+              "issues/categories"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Monthly curated newsletter of interesting and beginner-friendly GitHub open-source projects",
+    "Projects organized by programming language (C, C++, Go, Python, JavaScript, Rust, and more)",
+    "Community-driven submissions via GitHub Issues",
+    "123+ issues published since inception covering thousands of open-source projects",
+    "Available in Chinese, English, and Japanese",
+    "Published on the 28th of every month",
+    "Contributor recognition program with hall of fame",
+    "Automation scripts for content generation and project discovery"
+  ],
+  "publicApiSurface": [
+    "GitHub Issues submission form (submit-cn.yaml, submit-en.yaml)",
+    "make_content.py <issue_number|all> — regenerate monthly issue content files",
+    "github_bot.py — collect and filter trending GitHub projects via GitHub API",
+    "content/HelloGitHub{N}.md — Chinese monthly issue content files",
+    "content/en/HelloGitHub{N}.md — English monthly issue content files",
+    "hellogithub.com/periodical — web interface for browsing issues",
+    "hellogithub.com/en — English website"
+  ]
+}

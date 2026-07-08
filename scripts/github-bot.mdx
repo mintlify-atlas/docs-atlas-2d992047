@@ -1,0 +1,128 @@
+---
+title: "github_bot.py: Discover Trending GitHub Projects"
+sidebarTitle: "GitHub Bot"
+description: "github_bot.py collects starred GitHub projects from followed accounts, filters by star count, and emails a curated daily digest for HelloGitHub curation."
+---
+
+`github_bot.py` is a Python script that automates the discovery of interesting GitHub projects. It monitors which repositories the accounts followed on GitHub have recently starred, filters out low-signal results by enforcing a minimum star threshold (default: 100 stars), sorts the remaining candidates by total star count, and sends a formatted HTML email digest to configured recipients for editorial review.
+
+## Installation
+
+<Steps>
+  <Step title="Install dependencies">
+    The script depends on the `requests` library. Install it from the provided requirements file:
+
+    ```bash
+    pip install -r script/github_bot/requirements.txt
+    ```
+
+    `requirements.txt` contains:
+
+    ```
+    requests
+    ```
+  </Step>
+  <Step title="Configure credentials">
+    Open `script/github_bot/github_bot.py` and fill in the three configuration blocks near the top of the file:
+
+    ```python
+    # GitHub account
+    ACCOUNT = {
+        'username': '',
+        'password': ''
+    }
+
+    # Sender email settings
+    MAIL = {
+        'mail': '',        # sender email address
+        'username': '',
+        'password': '',
+        'host': 'smtp.qq.com',
+        'port': 465
+    }
+
+    # Recipient email addresses
+    RECEIVERS = []
+    ```
+
+    Save the file once all values are filled in.
+  </Step>
+  <Step title="Run the script">
+    Execute the script from the repository root:
+
+    ```bash
+    python script/github_bot/github_bot.py
+    ```
+
+    When it completes, each address in `RECEIVERS` will receive an HTML email listing the day's trending projects.
+  </Step>
+</Steps>
+
+## Configuration
+
+The script is configured entirely through three top-level variables in `github_bot.py`.
+
+### `ACCOUNT`
+
+Controls which GitHub account is used to call the API and whose followed-user network is monitored.
+
+| Field | Description |
+|---|---|
+| `username` | GitHub username for API authentication and event feed access |
+| `password` | GitHub password or Personal Access Token (PAT) — see warning below |
+
+### `MAIL`
+
+Controls the outgoing email connection via SMTP.
+
+| Field | Default | Description |
+|---|---|---|
+| `mail` | — | Sender email address shown in the `From` field |
+| `username` | — | SMTP login username (often identical to `mail`) |
+| `password` | — | SMTP account password or app-specific password |
+| `host` | `smtp.qq.com` | SMTP server hostname |
+| `port` | `465` | SMTP server port (SSL) |
+
+### `RECEIVERS`
+
+A Python list of recipient email address strings. All addresses in the list receive every digest email:
+
+```python
+RECEIVERS = ['editor@example.com', 'reviewer@example.com']
+```
+
+### Optional tuning constants
+
+Two additional constants control filtering behaviour:
+
+| Constant | Default | Description |
+|---|---|---|
+| `DAY` | `1` | How many days back to look for star events |
+| `STARS` | `100` | Minimum star count for a repository to appear in the digest |
+
+<Warning>
+  GitHub API now requires a Personal Access Token instead of a password. Create a token at https://github.com/settings/tokens with the `public_repo` and `read:user` scopes, then paste it into the `ACCOUNT.password` field.
+</Warning>
+
+## How It Works
+
+The script follows a linear pipeline each time it runs:
+
+1. **Authenticates with GitHub API** — uses the `ACCOUNT` credentials to make authenticated requests, which provides a higher rate limit than anonymous calls.
+2. **Fetches recent star events from followed accounts** — calls the GitHub Events API (`/users/{username}/received_events`) across up to 10 pages of 30 events each, collecting a maximum of 300 events total.
+3. **Filters out self-starred repositories** — any `WatchEvent` where the repository name contains the authenticated username's own account is excluded, keeping the digest focused on external discoveries.
+4. **Applies time and star-count filters** — only events within the configured `DAY` window are kept, and only repositories with at least `STARS` stars (default: 100) pass through. Repositories whose star count cannot be fetched (network timeout) are retained with a sentinel value of `-1` so they are not silently dropped.
+5. **Sorts results by star count (descending)** — the surviving repositories are ordered from most-starred to least-starred, so editors see the highest-signal projects first.
+6. **Formats a digest email** — project data (avatar, username, repository name, star date, star count) is rendered into an HTML table using `CONTENT_FORMAT`.
+7. **Sends via SMTP to configured recipients** — connects to the SMTP host over SSL (`SMTP_SSL`), authenticates, and delivers the message to every address in `RECEIVERS`.
+
+## Limitations
+
+- **300-event cap** — The GitHub Events API returns at most 300 events (10 pages × 30 per page). High-volume networks may miss older events.
+- **API rate limiting** — Unauthenticated requests are capped at 60 per hour. Authenticated requests raise this to 5,000 per hour, so valid credentials are effectively required.
+- **Password-based auth is deprecated** — GitHub removed password authentication for API calls. A Personal Access Token must be used in the `password` field.
+- **Sequential star-count lookups** — Individual repository star counts are fetched one at a time with a 2-second timeout each. Large event lists will slow execution noticeably; failed lookups fall back to `-1`.
+
+<Note>
+  This script is designed for internal HelloGitHub editorial use. The registered GitHub account `521hellogithub` is used to collect daily trending data.
+</Note>

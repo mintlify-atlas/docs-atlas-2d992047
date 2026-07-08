@@ -1,0 +1,72 @@
+---
+title: "make_content.py: Regenerate HelloGitHub Issue Files"
+sidebarTitle: "make_content"
+description: "Use make_content.py to regenerate one or all HelloGitHub monthly issue Markdown files from templates. Useful when updating shared boilerplate content."
+---
+
+`make_content.py` is a Python utility that regenerates the Markdown content files for HelloGitHub monthly issues. Every issue follows a uniform layout, and shared sections — headers, footers, table of contents notes — are defined once in a `template.md` file. When those common sections need updating, running this script rebuilds all affected issues automatically, without requiring manual edits to each published file.
+
+## Usage
+
+Pass an issue number to regenerate a single issue, or pass `all` to rebuild every issue at once:
+
+```bash
+# Regenerate a specific issue
+python make_content.py <issue_number>
+
+# Regenerate all issues
+python make_content.py all
+```
+
+Single-digit issue numbers are zero-padded automatically — for example, `python make_content.py 3` targets issue `03`.
+
+<Note>
+  Run this script from the repository root directory (not from inside `script/make_content/`). The script resolves all paths relative to the current working directory, so running it from elsewhere will cause it to silently skip files it cannot find.
+</Note>
+
+## What It Does
+
+The script combines two inputs to produce each final Markdown file:
+
+1. **`template.md`** — the shared boilerplate layout that contains two placeholder tokens:
+   - `{{ hello_github_num }}` — replaced with the zero-padded issue number (e.g. `42`)
+   - `{{ hello_github_content }}` — replaced with the raw per-issue project listings
+2. **`content{N}.md`** — the raw, issue-specific content file for issue `N`, stored inside the corresponding issue directory
+
+After substituting both tokens, the script writes the merged result to the final output file. This approach is especially useful when any of the following change:
+
+- Common header or footer template sections
+- Table of contents navigation instructions
+- Publication metadata (dates, links, banners)
+- WeChat QR codes or social media links shared across all issues
+
+## Output Files
+
+For each issue number `N`, the script reads from `{N}/content{N}.md` and writes the fully rendered output to:
+
+```
+{N}/HelloGitHub{N}.md
+```
+
+For example, issue 42 reads `42/content42.md` and produces `42/HelloGitHub42.md`.
+
+The generated file follows a consistent structure:
+
+- **Title** — the issue heading with the issue number injected from the template
+- **Introduction** — a brief welcome paragraph from the boilerplate
+- **Table of contents note** — navigation instructions telling readers how to jump between sections
+- **Project listings** — the per-issue content, organised by programming language category, each entry containing the project name, description, and a link to its GitHub repository
+
+<Warning>
+  Running `python make_content.py all` will overwrite all 123+ existing content files. Make sure your changes to the template are correct before running with `all`.
+</Warning>
+
+## When to Use It
+
+Reach for `make_content.py` whenever a change needs to be applied uniformly across every published issue:
+
+- Updating the WeChat QR code link embedded in all issues
+- Changing the TOC navigation instructions shown at the top of each issue
+- Fixing a broken image URL in the boilerplate header
+- Updating the footer disclaimer text
+- Refreshing any banner image or social-media badge that appears in every issue

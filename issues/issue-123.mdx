@@ -1,0 +1,158 @@
+---
+title: "HelloGitHub Issue #123 — June 2025 Open-Source Picks"
+sidebarTitle: "Issue #123"
+description: "HelloGitHub Issue #123 features 20+ curated open-source projects across C, C++, Go, JavaScript, Python, and more — published June 28, 2025."
+---
+
+HelloGitHub Issue \#123 features projects spanning systems programming, web development, productivity tools, and developer utilities. Published on June 28, 2025, this issue highlights 38 open-source tools and libraries drawn from community nominations, covering C, C#, C++, Go, JavaScript, Kotlin, Python, Rust, Swift, AI, and miscellaneous hardware projects.
+
+## Highlights
+
+The following projects stood out this issue for their creativity, usefulness, and beginner-friendliness.
+
+<CardGroup cols={2}>
+  <Card
+    title="keyd — Linux Keyboard Remapper"
+    icon="keyboard"
+    href="https://github.com/rvaiya/keyd"
+  >
+    A system-level keyboard remapping daemon for Linux built on the kernel input layer (evdev/uinput). Works across X11, Wayland, and TTY terminals without any desktop environment dependency. Supports press vs. long-press actions, custom key combos, and per-keyboard profiles.
+  </Card>
+  <Card
+    title="luanti — Voxel Game Engine"
+    icon="cube"
+    href="https://github.com/luanti-org/luanti"
+  >
+    An open-source voxel game creation platform where you can build your own 3D block games using Lua. Ships with a built-in content store for community mods and games, supports single-player, LAN, and multiplayer, and runs on Windows, macOS, Linux, and Android.
+  </Card>
+  <Card
+    title="gopass — Team Password Manager"
+    icon="lock"
+    href="https://github.com/gopasspw/gopass"
+  >
+    A command-line password manager designed for teams. Uses GPG for encryption and Git for version control and sync across devices. Serves as a modern drop-in replacement for the classic UNIX `pass` tool.
+  </Card>
+  <Card
+    title="react-scan — React Performance Debugger"
+    icon="magnifying-glass"
+    href="https://github.com/aidenybai/react-scan"
+  >
+    A visual debugging tool that automatically detects unnecessary re-renders in React applications. Requires zero code changes — just add a script tag or run one command. Compatible with React, Next.js, Vite, and Remix.
+  </Card>
+  <Card
+    title="black — Python Code Formatter"
+    icon="code"
+    href="https://github.com/psf/black"
+  >
+    The official PSF-maintained Python code formatter. Minimal configuration, deterministic output — run one command and your entire codebase adopts a consistent style. Eliminates style debates in teams for good.
+  </Card>
+  <Card
+    title="Scrapling — Adaptive Web Scraper"
+    icon="spider-web"
+    href="https://github.com/D4Vinci/Scrapling"
+  >
+    A self-adapting Python scraping framework whose parser learns website structure changes and automatically re-locates target elements after page redesigns. Supports multi-session concurrency, resume-on-failure, domain blocking, and an MCP server.
+  </Card>
+</CardGroup>
+
+## Projects by Language
+
+<Accordion title="C">
+  **keyd** — [github.com/rvaiya/keyd](https://github.com/rvaiya/keyd)
+  A Linux system-level keyboard remapping daemon based on the kernel input layer (evdev/uinput). Configurations take effect on X11, Wayland, and TTY without relying on the desktop environment. Supports press, long-press, custom key combinations, and per-keyboard mapping rules.
+
+  **mbedtls** — [github.com/Mbed-TLS/mbedtls](https://github.com/Mbed-TLS/mbedtls)
+  A flexible, easy-to-use TLS library written in C. Implements cryptographic primitives, X.509 certificate operations, and SSL/TLS and DTLS protocols. Compact and easily portable — ideal for IoT and embedded systems with limited resources.
+</Accordion>
+
+<Accordion title="C#">
+  **PaperTodo** — [github.com/snownico0722/PaperTodo](https://github.com/snownico0722/PaperTodo)
+  A minimalist Windows desktop sticky-notes tool. Each note is a borderless, floating, independent window — no main window, no account, no category management. Content auto-saves. Supports to-do paper and note paper (with lightweight Markdown highlighting), can collapse into a pinned top-edge capsule, and automatically snaps to screen edges.
+</Accordion>
+
+<Accordion title="C++">
+  **luanti** — [github.com/luanti-org/luanti](https://github.com/luanti-org/luanti)
+  An open-source voxel game creation platform. Build your own 3D block games rapidly with Lua. Features a built-in content store for downloading community mods and games, supports single-player, LAN, and multiplayer modes, and runs on Windows, macOS, Linux, and Android.
+
+  **SpeedyNote** — [github.com/alpha-liu-01/SpeedyNote](https://github.com/alpha-liu-01/SpeedyNote)
+  A cross-platform handwritten note-taking app optimized for low-cost devices, targeting an iPad-like writing experience on old tablets. Supports pressure-sensitive writing, multi-layers, PDF annotation, and handwritten OCR. Runs on Windows, macOS, Linux, Android, and iPadOS.
+</Accordion>
+
+<Accordion title="Go">
+  **chinese-poetry-api** — [github.com/palemoky/chinese-poetry-api](https://github.com/palemoky/chinese-poetry-api)
+  A Chinese ancient poetry API service written in Go, cataloguing nearly 400,000 works including Tang poems, Song ci, and Yuan qu. Provides both REST API and GraphQL interfaces, with full-text search, IP rate limiting, random retrieval by dynasty/author/type, and one-click Docker deployment.
+
+  **fight-the-landlord** — [github.com/palemoky/fight-the-landlord](https://github.com/palemoky/fight-the-landlord)
+  A terminal-based Dou Di Zhu (Fight the Landlord) card game written in Go, featuring random dealing and no card-control algorithm. Supports online multiplayer, room matching, disconnection recovery, a card recorder, and integrates Kuaishou's open-source DouZero AI as a bot opponent.
+
+  **gopass** — [github.com/gopasspw/gopass](https://github.com/gopasspw/gopass)
+  A command-line tool for storing, managing, and syncing passwords, keys, and certificates — a modern replacement for the UNIX `pass` tool. Uses GPG for encryption and Git for credential management, enabling sync across multiple devices and teams via Git repositories.
+
+  **tinyauth** — [github.com/tinyauthapp/tinyauth](https://github.com/tinyauthapp/tinyauth)
+  A minimalist Go-based authentication middleware deployable via Docker in minutes. Adds a login screen or OAuth logins (Google, GitHub, etc.) to any web service without touching existing code. Integrates seamlessly with Traefik, Caddy, and Nginx reverse proxies.
+</Accordion>
+
+<Accordion title="JavaScript">
+  **emdash** — [github.com/emdash-cms/emdash](https://github.com/emdash-cms/emdash)
+  A serverless CMS built on Astro, designed as a WordPress alternative. Features WordPress import, visual editing, full-text search, and scheduled publishing. Runs directly on Cloudflare Workers or local Node.js + SQLite environments.
+
+  **r2-web** — [github.com/vikiboss/r2-web](https://github.com/vikiboss/r2-web)
+  A pure front-end Cloudflare R2 cloud-storage file manager. Open the page, enter your R2 credentials, and manage bucket files directly. Includes built-in image, video, audio, and text preview, drag-and-drop / paste uploads, image compression, and batch management.
+
+  **react-scan** — [github.com/aidenybai/react-scan](https://github.com/aidenybai/react-scan)
+  A visual debugging tool that detects React performance issues automatically. No code changes required — add a script tag or run one command. Highlights components with unnecessary re-renders. Supports React, Next.js, Vite, and Remix.
+
+  **tiny-world-builder** — [github.com/jasonkneen/tiny-world-builder](https://github.com/jasonkneen/tiny-world-builder)
+  A browser-based 3D voxel world editor built with Three.js — a mini Minecraft-style creative sandbox. No installation needed. Build terrain, roads, rivers, houses, crops, and props. Supports local save, import/export, and vehicle pathfinding with obstacle avoidance.
+
+  **tolaria** — [github.com/refactoringhq/tolaria](https://github.com/refactoringhq/tolaria)
+  A desktop app for managing Markdown knowledge bases where each knowledge base is a Git repository, providing built-in version history and change tracking. Notes are stored as plain Markdown files and are always portable. Includes a built-in MCP server for use with Claude Code, Codex, and other AI tools.
+</Accordion>
+
+<Accordion title="Kotlin">
+  **shiguangschedule** — [github.com/XingHeYuZhuan/shiguangschedule](https://github.com/XingHeYuZhuan/shiguangschedule)
+  An open-source Android course schedule app for Chinese university students and teachers. Supports one-click import from different university academic systems via adapter scripts. Features today's schedule view, home-screen widgets, and automatic silent/do-not-disturb mode during class hours.
+</Accordion>
+
+<Accordion title="Python">
+  **ASCILINE** — [github.com/YusufB5/ASCILINE](https://github.com/YusufB5/ASCILINE)
+  A cross-platform real-time ASCII video rendering engine capable of smooth 30 FPS playback. Supports direct URL streaming, audio-video sync, and adaptive frame encoding/decoding. Runs without a GPU in ASCII mode.
+
+  **black** — [github.com/psf/black](https://github.com/psf/black)
+  The official Python Software Foundation (PSF) code formatter. Minimal configuration and deterministic output — one command transforms a codebase to a unified style. Eliminates code style debates in teams permanently.
+
+  **mpmath** — [github.com/mpmath/mpmath](https://github.com/mpmath/mpmath)
+  A Python library for arbitrary-precision numerical computation. Supports root finding, linear algebra, calculus, and real and complex number operations. Ideal for high-precision scenarios where standard floating-point arithmetic falls short.
+
+  **Scrapling** — [github.com/D4Vinci/Scrapling](https://github.com/D4Vinci/Scrapling)
+  An adaptive Python web-scraping framework. The parser learns website structure and automatically re-locates target elements after a page redesign. Features built-in scrapers, multi-session concurrency, resume-on-failure, domain blocking, and an MCP server.
+
+  **winpodx** — [github.com/kernalix7/winpodx](https://github.com/kernalix7/winpodx)
+  A Linux tool that runs Windows applications as native Linux windows without requiring a full Windows desktop. Uses a containerized Windows instance in the background and FreeRDP to project each app as an independent window. Supports taskbar pinning, Alt-Tab switching, file associations, and USB devices.
+</Accordion>
+
+## Read the Full Issue
+
+<CardGroup cols={3}>
+  <Card
+    title="GitHub — Chinese"
+    icon="github"
+    href="https://github.com/521xueweihan/HelloGitHub/blob/master/content/HelloGitHub123.md"
+  >
+    Read the original Chinese Markdown source on GitHub.
+  </Card>
+  <Card
+    title="GitHub — English"
+    icon="language"
+    href="https://github.com/521xueweihan/HelloGitHub/blob/master/content/en/HelloGitHub123.md"
+  >
+    Read the English translation of Issue \#123 on GitHub.
+  </Card>
+  <Card
+    title="hellogithub.com"
+    icon="globe"
+    href="https://hellogithub.com/periodical/volume/123"
+  >
+    Browse on the official website with full image support.
+  </Card>
+</CardGroup>
